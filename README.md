@@ -33,7 +33,7 @@ JavaScript Deep Dive
 ### [3] 내용을 정리한 사람꺼를 받아서 보려면  
 
 ```
-git checkout -p js 0123   날짜별 폴더를 받아오면 되는데
+git checkout -p 0123      날짜별 폴더를 받아오면 되는데
                           만약 내용이 안넘어올 경우  
 git merge js              js branch를 전부 merge 해서 받아옴
 ```
