@@ -14,6 +14,21 @@ JavaScript Deep Dive
 4. js 폴더를 커밋!
 ```
 
+
+```
+// PR
+
+git branch                          현재 branch 확인
+git checkout -b js                  js branch를 만들고
+git add js                          커밋 할 js 폴더를 추가
+git commit -m "[이름] 커밋메세지"     커밋 메세지
+git push origin js                  푸쉬
+
+git branch                          현재 branch 확인
+git 각자 브랜치명                    다시 각자 브랜치로 이동해서 작업
+```
+
+
 ### [2] 내용을 정리할 사람
 
 ```
