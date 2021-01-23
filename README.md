@@ -1,6 +1,7 @@
 # js-deep-div
 
 JavaScript Deep Dive
+<<<<<<< HEAD
 
 이 js branch에 모두 공부해온 내용을 합칠 예정입니다!
 
@@ -67,3 +68,6 @@ K - leave this hunk undecided, see previous hunk
 s - split the current hunk into smaller hunks
 e - manually edit the current hunk
 ```
+=======
+yunseop-dev
+>>>>>>> yunseop-kim
