@@ -1,9 +1,9 @@
 ## 15장 let, const 키워드와 블록 레벨 스코프
 
-#### [1. var 키워드로 선언한 변수의 문제점](#1.-var-키워드로-선언한-변수의-문제점)
-#### [2. let 키워드](#2.-let-키워드)
-#### [3. const 키워드](#3.-const-키워드)
-#### [4. var vs let vs const](#4.-var-vs-let-vs-const)
+#### [1. var 키워드로 선언한 변수의 문제점](#1-var-키워드로-선언한-변수의-문제점-1)
+#### [2. let 키워드](#2-let-키워드-1)
+#### [3. const 키워드](#3-const-키워드-1)
+#### [4. var vs let vs const](#4-var-vs-let-vs-const-1)
 
 ***
 

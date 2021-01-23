@@ -1,8 +1,8 @@
 ## 43장 Ajax
 
-#### [1. Ajax란?](#1.-Ajax란?)
-#### [2. JSON](#2.-JSON)
-#### [3. XMLHttpRequest](#3.-XMLHttpRequest)
+#### [1. Ajax란?](#1-Ajax란?-1)
+#### [2. JSON](#2-JSON-1)
+#### [3. XMLHttpRequest](#3-XMLHttpRequest-1)
 
 ***
 

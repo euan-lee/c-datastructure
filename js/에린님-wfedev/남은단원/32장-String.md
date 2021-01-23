@@ -1,8 +1,8 @@
 ## 32장 String
 
-#### [1. String 생성자 함수](#1.-String-생성자-함수)
-#### [2. length 프로퍼티](#2.-length-프로퍼티)
-#### [3. String 메서드](#3.-String-메서드)
+#### [1. String 생성자 함수](#1-String-생성자-함수-1)
+#### [2. length 프로퍼티](#2-length-프로퍼티-1)
+#### [3. String 메서드](#3-String-메서드-1)
 
 ***
 
