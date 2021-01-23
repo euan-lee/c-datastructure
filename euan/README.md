@@ -1,7 +1,7 @@
 # js-deep-div
 
 JavaScript Deep Dive
-<<<<<<< HEAD
+<<<<<<< HEAD:README.md
 
 이 js branch에 모두 공부해온 내용을 합칠 예정입니다!
 
@@ -15,21 +15,6 @@ JavaScript Deep Dive
 3. 그리고 그 안에 날짜별 폴더를 만들고, 공부한 내용 md 파일을 넣어서
 4. js 폴더를 커밋!
 ```
-
-
-```
-// PR
-
-git branch                          현재 branch 확인
-git checkout -b js                  js branch를 만들고
-git add js                          커밋 할 js 폴더를 추가
-git commit -m "[이름] 커밋메세지"     커밋 메세지
-git push origin js                  푸쉬
-
-git branch                          현재 branch 확인
-git 각자 브랜치명                    다시 각자 브랜치로 이동해서 작업
-```
-
 
 ### [2] 내용을 정리할 사람
 
@@ -84,5 +69,5 @@ s - split the current hunk into smaller hunks
 e - manually edit the current hunk
 ```
 =======
-yunseop-dev
->>>>>>> yunseop-kim
+범진 
+>>>>>>> euan:euan/README.md
