@@ -46,7 +46,7 @@ if (1) { }
 
 
 **[ 1) 문자열 타입으로 암묵적 타입 변환 ]**
-: "**+**" 연산자가 **하나 이상의 string**과 함께 적용되었을 경우
+: "**+**" **이항** 연산자가 **하나 이상의 string**과 함께 적용되었을 경우
 
 
 ex) 
@@ -86,7 +86,7 @@ Array + '' // "function Array() { [native code] }"
 
 
 **[ 2) 숫자 타입으로 암묵적 타입 변환 ]**
-: **"+" 이외**의 연산자 or **"+" 연산자가 string 없이** 적용되었을 경우
+: **"+" 이외**의 연산자 or **"+" 연산자가 (이항 연산자가 아닌) 단항 연산자**인 경우
 
 ex)
 ```js
@@ -96,7 +96,7 @@ ex)
 
 '1' > 0 // true
 
-+ '' // 0
++ '' // 0 <- + 단항 연산자는 피연산자를 숫자 타입으로 암묵적으로 변환
 + '0' // 0
 + '1' // 1
 + 'string' // NaN
@@ -215,8 +215,8 @@ false + '';
 **[ 2) 숫자 타입으로 명시적 타입 변환 ]**
 
 - Number() (without "new")
-- parseInt() or parseFloat() <- string 타입만 이 함수들로 숫자 타입 변환 가능
-- 단항 산술 연산자 + 활용
+- parseInt() or parseFloat() <- **string 타입만** 이 함수들로 숫자 타입 변환 가능
+- **단항 산술 연산자 + 활용**
 - 산술 연산자 * 이용
 
 ex) 
@@ -273,19 +273,19 @@ Boolean([]);           // true
 ex)
 ```js
 !!'x'; // true (NOT 을 2회 연달아 적용, 이하 동일 원리)
-!!'';
-!!'false';
+!!''; // false
+!!'false'; // true
 
-!!0;
-!!-1;
-!!NaN;
-!!Infinity;
+!!0; // false
+!!-1; // true
+!!NaN; // false
+!!Infinity; // true
 
-!!null;
-!!undefined;
+!!null; //false
+!!undefined; // false
 
-!!{};
-!![];
+!!{}; // true
+!![]; // true
 ```
 
 
@@ -369,7 +369,7 @@ console.log(message); // 완료
 
 [ 단축 평가의 활용 1) **객체가 가리키기를 기대하는 변수가 null or undefined 인지 확인 후 프로퍼티를 참조**할 때 ]
 
-- 객체는 **key & value로 구성된 프로퍼티(property)**의 집합
+- 객체는 <b>key & value로 구성된 프로퍼티(property)</b>의 집합
 - 객체가 가리키기를 기대하는 변수의 값이 객체가 아니라 null or undefined인 경우 객체 프로퍼티 참조 시 타입 에러 발생 
 
 ```js
