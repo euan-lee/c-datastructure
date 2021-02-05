@@ -2,7 +2,8 @@
 
 1. 🧑‍🤝‍🧑 스터디원
 
-- 대연님@repositivator, 범진님@euan-lee, 에린님@wfedev  
+- 에린님@wfedev  
+- 대연님@repositivator, 범진님@euan-lee, 이새님@jesscha  
 - 피터님@noderboarder, 홍기님@Hong-Ki, 홍수님@ColdNight-Zero
 
 <br />
@@ -24,5 +25,7 @@
 
 4. 📝 스터디 진행 기록
 
-- [2021. 01. 16](https://github.com/js-reference/js-deep-dive/issues/1)
-- [2021. 01. 23](https://github.com/js-reference/js-deep-dive/issues/3)
+- [2021. 01. 16 - 스터디 깃헙 클론, 방향 결정](https://github.com/js-reference/js-deep-dive/issues/1)
+- [2021. 01. 23 - 4, 5, 6장](https://github.com/js-reference/js-deep-dive/issues/3)
+- [2021. 01. 30 - 7, 8, 9장](https://github.com/js-reference/js-deep-dive/issues/4)
+- [2021. 02. 06 - 9, 10, 11장]()
