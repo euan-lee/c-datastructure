@@ -270,7 +270,7 @@ var sub = function (x, y){ // var 키워드를 활용한 "변수 할당문"
 ### 3) Function 생성자 함수 활용
 
 - **일반적이지 않으며 바람직하지 않음** (클로저를 생성하지 않는 등 선언문 or 표현식으로 생성한 함수와 다르게 동작함)
-- js 기본 빌트인 함수인 Function **생성자 함수(객체를 생성하는 함수)**를 활용 
+- js 기본 빌트인 함수인 Function **생성자 함수(객체를 생성하는 함수)** 를 활용 
 - 매개변수 목록 & 함수 몸체를 **문자열**로 전달하면서 호출 시, 함수 객체를 생성해 반환함
 
 ```js
@@ -307,7 +307,7 @@ console.log(add2(1, 2)); // ReferenceError: a is not defined
 ### 4) 화살표 함수 arrow function 활용 (ES6) 
 
 - ES6에서 도입
-- function 키워드 대신 **화살표 (=>, fat arrow)**를 사용해 함수를 선언
+- function 키워드 대신 **화살표 (=>, fat arrow)** 를 사용해 함수를 선언
 - 화살표 함수는 항상 **익명 함수**로 정의
 
 ```js
@@ -320,7 +320,7 @@ console.log(add(2, 5)); // 7
 ```
 
 - 기존의 함수 선언문 or 함수 표현식을 완전히 대체하기 위해 디자인된 것은 아님
-- 26.3절 화살표 함수에서 추가로 다뤄질 예정 [ 생성자 함수로 사용 불가, 기존 함수와 this 바인딩 방식이 다름, prototype 프로퍼티가 없음, arguments 객체를 생성하지 않음 ]
+- 26.3절 화살표 함수에서 추가로 다뤄질 예정 [ 생성자 함수로 사용 불가, 기존 함수와 this 바인딩 방식이 다름 (현재 관건인 컨텍스트만 대상으로 하는 방식으로 간결해짐), prototype 프로퍼티가 없음, arguments 객체를 생성하지 않음 ]
 
 
 
@@ -335,7 +335,7 @@ console.log(add(2, 5)); // 7
 - 함수가 호출되면 함수 몸체 내에서 암묵적으로 매개변수가 생성됨
 - 일반 변수와 마찬가지로 undefined로 초기화된 후 인수가 순서대로 할당됨
 - 매개변수는 함수 몸체 내부에서만 참조 가능함 
-- **매개변수의 스코프(유효 범위)**는 **함수 내부**
+- **매개변수의 스코프(유효 범위)** 는 **함수 내부**
 
 ```js
 function add(x, y) {
@@ -854,7 +854,7 @@ var logOdds = function(i){ // 콜백 함수
     }
 };
 
-repeat(5, loggOdds); // 반복 호출할 B 함수를 인수로 함께 전달
+repeat(5, logOdds); // 반복 호출할 B 함수를 인수로 함께 전달
 ```
 
 - **콜백 함수 callback function** : 함수의 매개변수를 통해 **다른 함수의 내부로 전달되는 함수** (내부에서 다시back 불러와짐call) <- 위에서 [ logAll & logOdds ] 
@@ -874,7 +874,7 @@ repeat(5, loggOdds); // 반복 호출할 B 함수를 인수로 함께 전달
 
 - 고차 함수는 콜백 함수의 호출 시점을 결정하여 호출함
 - 콜백 함수는 고차 함수에 의해 호출되며, 고차 함수는 필요에 따라 콜백 함수에 인수를 전달함 (다만 **모든 콜백 함수가 고차 함수에 의해 호출되는 것은 아님**)
-- 고차 함수에게 콜백 함수를 전달할 때에는 **콜백 함수를 호출하지 않고 함수 자체를 전달**해야 함 (함수 호출 연산자 ()가 없음에 유의)
+- 고차 함수에게 콜백 함수를 전달할 때에는 **콜백 함수를 호출하지 않고 함수 자체를 전달** 해야 함 (함수 호출 연산자 ()가 없음에 유의)
 - 콜백 함수가 고차 함수 내부에만 호출될 시, 콜백 함수를 익명 함수 리터럴로 정의하면서 바로 고차 함수에 전달할 수 있음
 
 
@@ -895,7 +895,7 @@ repeat(5, function(i) {
 <br>
 
 - 콜백 함수는 함수형 프로그래밍 패러다임 뿐만 아니라,
-- **비동기 처리(이벤트 처리, Ajax 통신, 타이머 함수 등)**에 활용되는 중요한 패턴
+- **비동기 처리(이벤트 처리, Ajax 통신, 타이머 함수 등)** 에 활용되는 중요한 패턴
 
 ```js
 // 콜백 함수를 활용한 이벤트 처리
@@ -1026,3 +1026,280 @@ console.log(count); // 2
 - 순수 함수와 보조 함수의 조합을 통해 외부 상태를 변경하는 부수 효과를 최소화하여 불변성을 지향함
 - 로직 내에 존재하는 조건문 & 반복문을 제거하여 복잡성 해결 (가독성 향상)
 - 변수 사용을 억제 or 변수의 생명 주기를 최소화하여 상태 변경을 피해 오류를 최소화 (오류 발생의 근본적 원인을 해결)
+
+
+
+## 내용 추가학습
+
+
+### 1. @ https://medium.com/@oasis9217/번역-javascript-도대체-콜백이-뭔데-65bb82556c56
+
+```js
+
+T.get('search/tweets', params, function(err, data, response) {
+  if(!err){
+    // This is where the magic will happen
+  } else {
+    console.log(err);
+  }
+})
+
+// 여기에서 내부에 주어진 익명 콜백함수에게 들어가는 err, data, response는 따로 상위 스코프나 전역변수로서 존재하지 않아요! @ https://codeburst.io/build-a-simple-twitter-bot-with-node-js-in-just-38-lines-of-code-ed92db9eb078
+
+// 그러면 저희가 이걸 이해할 때 
+// T.get() 함수가 주어진 익명 콜백함수를 직접 내부에서 실행하면서, 
+// get() 함수 내부적으로 err, data, response를 콜백함수에게 꽂아 실행해준다고 봐야겠지요?
+
+// function get(~, ~, f) {
+//   ~~~ 
+//   err = ~~~ <- 미리 err, data, response에 해당하는 변수가 준비됨
+//   f(err, data, response) 
+// }
+
+// 이런 형태로요!
+
+```
+
+
+
+### 2. @ https://velog.io/@surim014/JavaScript-callback-콜백에-대해-알아보자
+
+
+### 비동기 처리의 예시
+
+```js
+
+function getData() {
+	var tableData;
+	$.get('https://domain.com/products/1', function (response) {
+		tableData = response;
+	});
+	return tableData;
+}
+
+console.log(getData()); // undefined
+
+// Ajax (Asynchronous JavaScript and XML) : 자바스크립트를 이용해서 비동기적으로 서버와 브라우저가 데이터를 교환할 수 있는 통신 방식을 의미한다.
+// 1. $.get() : ajax 통신을 하는 부분 (https://domain.com 에다가 HTTP GET 요청을 날려 1번 상품(product) 정보를 요청하는 코드), 지정된 URL에 ‘데이터를 하나 보내주세요’ 라는 요청을 날리는 것과 같다.
+// 2. 그렇게 서버에서 받아온 데이터는 매개변수인 response에 담긴다.
+// 3. tableData = response;로 받아온 데이터를 변수 tableData에 저장한다.
+// 4. getData()를 호출한다.
+// 5. 받아온 데이터가 무엇이든 console을 해야한다.
+// 6. undefined 출력
+```
+
+
+```js
+
+// 콜백 함수로 비동기 처리 방식의 문제점 해결하기
+// 위에서 자바스크립트 비동기 처리식에 의해 야기될 수 있는 문제들을 살펴보았다. 
+// 이러한 문제들은 콜백 함수를 이용하여 해결할 수 있다.
+// 위의 예제인 ajax 통신 코드를 콜백 함수로 개선해보면 이렇게 나온다.
+
+function getData(callbackFunc) {
+	$.get('https://domain.com/products/1', function (response) {
+		callbackFunc(response); // 서버에서 받은 데이터 response를 callbackFunc() 함수에 넘겨줌
+	});
+}
+
+getData(function (tableData) {
+	console.log(tableData); // $.get()의 response 값이 tableData에 전달됨
+});
+
+```
+
+
+### 콜백 지옥
+
+```js
+// 비동기 처리 로직을 위해 콜백 함수를 연속해서 사용할 때 발생하는 문제
+// 웹 서비스를 개발하다 보면 서버에서 데이터를 받아와 화면에 표시하기까지 
+// 인코딩, 사용자 인증 등을 처리해야 하는 경우가 있다. 
+// 만약 이 모든 과정을 비동기로 처리해야 한다고 하면 
+// 아래와 같이 콜백 안에 콜백을 계속 무는 형식으로 코딩을 하게 된다. 
+// 이러한 코드 구조는 가독성도 떨어지고 로직을 변경하기도 어렵다. 이와 같은 코드 구조를 콜백 지옥이라고 한다.
+
+$.get('url', function (response) {
+	parseValue(response, function (id) {
+		auth(id, function (result) {
+			display(result, function (text) {
+				console.log(text);
+			});
+		});
+	});
+});
+
+```
+
+
+### 콜백 지옥을 해결하는 방법
+
+```js
+// 일반적으로 콜백 지옥을 해결하는 방법에는 Promise https://j.mp/3bpMfW2 나 
+// Async/Await(비동기함수) https://geundung.dev/54?category=719249 를 사용하는 방법이 있다.
+// 만약 코딩 패턴으로만 콜백 지옥을 해결하려면 아래와 같이 각 콜백 함수를 분리해주면 된다.
+
+function parseValueDone(id) {
+	auth(id, authDone);
+}
+function authDone(result) {
+	display(result, displayDone);
+}
+function displayDone(text) {
+	console.log(text);
+}
+
+$.get('url', function (response) {
+	parseValue(response, parseValueDone);
+});
+
+// 1. ajax 통신으로 받은 테이터를 paseValue() 메서드로 파싱한다.
+// 2. paseValueDone()에 파싱한 결과값인 id가 전달되고 auth()메서드가 실행된다.
+// 3. auth()메서드로 인증을 거치고 나면 콜백 함수 authDone()이 실행된다.
+// 4. 인증 결과 값인 result로 display()를 호출한다.
+// 5. 마지막으로 displayDone()메서드가 수행되면서 text가 콘솔에 출력된다.
+```
+
+
+### 단순 콜백 vs Promise vs Async & Await
+
+
+```js
+
+var log = function(msg, result) {
+    console.log('Log :', msg);
+    result(msg);
+};
+
+log('부팅 시작', function(result) {
+    log('네트워크 설정 중..', function(result) {
+        log('유저 프로필 설정 중..', function(result){
+            log('반갑습니다', function(result){
+                console.log('마지막 로그 :', result);
+            }{
+        })
+    })
+});
+
+```
+
+```js
+
+var log = function(msg) {
+    return new Promise(function(resolve, reject) {
+        console.log('Log :', msg);
+        resolve(msg);
+    })
+};
+
+log('부팅 시작').then(function(result) { // func resolve
+    return log('네트워크 설정 중..')
+}).then(function(result) {
+    return log('유저 프로필 설정 중..')
+}).then(function(result) {
+    return log('반갑습니다')
+}).then(function(result) {
+    return log('마지막 로그 :', result)
+}).catch(function(error) {
+    console.log(error);
+});
+
+```
+
+```js
+
+var log = function(msg) {
+    return new Promise(function(resolve, reject) {
+        resolve(msg);
+    })
+};
+
+var logger = async function() {
+    console.log('Log: ', await log('부팅 시작'));
+    console.log('Log: ', await log('네트워크 설정 중..'));
+    console.log('Log: ', await log('유저 프로필 설정 중..'));
+    console.log('Log: ', await log('반갑습니다'));
+    return '반갑습니다.'
+}
+
+logger().then(function(result) {
+    console.log('마지막 로그 :', result)
+})
+
+```
+
+
+### Ajax 추가 내용
+
+- AJAX란, JavaScript의 라이브러리중 하나이며 Asynchronous Javascript And Xml(비동기식 자바스크립트와 xml)의 약자이다. 
+- 브라우저가 가지고있는 XMLHttpRequest 객체를 이용해서 전체 페이지를 새로 고치지 않고도 페이지의 일부만을 위한 데이터를 로드하는 기법 이며 
+- JavaScript를 사용한 비동기 통신, 클라이언트와 서버간에 XML 데이터를 주고받는 기술이다.
+- 즉, 쉽게 말하자면 자바스크립트를 통해서 서버에 데이터를 요청하는 것이다.
+
+- XMLHttpRequest 객체를 얻은 뒤, url을 통해 요청하고 응답을 받으면 응답 결과에 맞는 함수를 실행하는 구조로 되어 있다. 
+- Ajax가 효율적이라고는 해도 이렇게 하게 될 경우, 코드가 길어지기 때문에 jQuery에서 그 문제를 해결해주고 있다.
+
+```js
+// Version 1
+
+// 1. XMLHttpRequest Object를 만든다.
+// 2. callback 함수를 만든다.
+// 3. Open a request
+// 4. send the request
+
+// This function gets invoked when server sends the response
+function reqListener (e) {
+    console.log(e.currentTarget.response);
+}
+
+var oReq = new XMLHttpRequest();
+var serverAddress = "https://hacker-news.firebaseio.com/v0/topstories.json";
+
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", serverAddress);
+oReq.send();
+
+
+// 자바스크립트를 이용하여 특정 서버에 요청을 보내고 그에 대한 자료를 성공적으로 받아올 수 있음을 확인해볼 수 있다. 
+// 위 예제에서는 XMLHttpRequest를 이용하여 요청을 보냈지만 
+// 일반적으로는 아래와 같이 jQuery나 기타 AJAX 기능이 내장되어 있는 라이브러리를 이용하여 AJAX 요청을 처리한다.
+```
+
+```js
+// Version 2
+
+var serverAddress = 'https://hacker-news.firebaseio.com/v0/topstories.json';
+
+// jQuery의 .ajax 메소드 사용
+$.ajax({
+    url: ,
+    type: 'GET',
+    success: function onData (data) {
+        console.log(data);
+    },
+    error: function onError (error) {
+        console.error(error);
+    }
+});
+
+
+// Version 3
+
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function(){
+	if(xhr.readyState === 4){
+    	document.getElementById('ajax').innerHTML= xhr.responseText;
+    }
+}
+
+xhr.open('GET', "sidebar.html");  // HTTP 메소드와 URL을 세팅한다. (open함수는 준비를 시키는것이지 보내는 것은 아니다.)
+xhr.send(); 
+
+// 위의 예제는 AJAX가 XHR객체를 형성하고 이 객체의 콜백을 만들고 HTTP 메소드와 URL 을 결정한 뒤, XHR 객체의 메소드로 정보를 보내는 방식이다.
+
+// 1. var xhr = new XMLHttpRequest(); : browser response를 얻었을 때 작동하는 함수 (callback 함수)
+// 2. xhr.onreadystatechange : AJAX Request에 어떠한 변화라도 있으면 작동한다. (callback 함수를 포함하고 있다고 생각하면 된다.)
+// xhr.readyState : response가 돌아왔는지 아닌지를 추적하는 property
+
+```
