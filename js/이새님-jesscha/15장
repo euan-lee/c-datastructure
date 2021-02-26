@@ -1,0 +1,35 @@
+- var는 중복 선언이 가능하다.
+- var는 함수의 코드 블록 만을 지역 스코프로 인정한다 .
+- for 문의 선언문에서 var 키워드로 선언한 변수도 전역 변수다.
+- 함수 레벨 스코프는 전역 변수를 남발할 가능성을 높인다.
+- var 로 선언하면 호이스팅에 의해 변수 선언문이 스코프의 선두로 끌어 올려진 것처럼 동작한다.
+- 변수 선언문 이전에 참조할 수 있으며 이전에 변수를 참조하면 undefined를 반환한다.
+
+## let 키워드
+
+- let 은 변수 중복 선언이 금지 되어 있다.
+- 블록 만을 지역스코프로 인정한다.
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6fabf22-2501-49d6-acbc-93452af95b3c/DC19E5D9-0E1D-46D3-B4D6-F7FC07D91CFA.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6fabf22-2501-49d6-acbc-93452af95b3c/DC19E5D9-0E1D-46D3-B4D6-F7FC07D91CFA.jpeg)
+
+- 변수 선언 시점 이전에 참조할 수 없다.
+- let 키워드로 선언한 변수는 선언 단계와 초기화 단계가 분리되어 진행된다. 런타임 이전에 자바스크립트 엔진에 의해 암묵적으로 선언단계가 먼저 실행되지만 초기화 단계는 변수 선언문에 도달했을 때 실행된다.
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9e02761-7b0d-4636-8755-3ad48ba9cea5/AFDB5ADA-1BD6-4592-B394-BBBFFDCCDC49_4_5005_c.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f9e02761-7b0d-4636-8755-3ad48ba9cea5/AFDB5ADA-1BD6-4592-B394-BBBFFDCCDC49_4_5005_c.jpeg)
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8ac97664-6b4b-42a1-8cdc-ba205d95206a/EFF61D17-F221-4546-83FD-D225AE87D9AB_4_5005_c.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8ac97664-6b4b-42a1-8cdc-ba205d95206a/EFF61D17-F221-4546-83FD-D225AE87D9AB_4_5005_c.jpeg)
+
+- 자바스크립트는 es6에서 도입된 let, const를 포함해서 모든 선언을 호이스팅한다. 단 es6에서 도입된 let, const, class를 사용한 선언문은 호이스팅이 발생하지 않는 것처럼 동작한다.
+
+- var 키워드로 선언한 전역 변수와 전역 함수 그리고 선언하지 않은 변수에 값을 할당하면 암묵적 전역은 전역 객체의 프로퍼티가 된다. 전역 객체의 프로퍼티를 참조할 때 window를 생략할 수 있다.
+- let 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아니다. 즉, window.foo와 같이 접근할 수 없다. let 전역 변수는 보이지 않는 개념적인 블록내에 존재하게 된다.
+
+## const 키워드
+
+- let과 대부분 동일 하니 차이점만 알아본다.
+- const는 선언과 동시에 초기화 하지 않으면 에러가 발생한다.
+- 재할당 되지 않는다.
+- 상수를 위해 자주 사용된다. (상수를 사용하는건 유지 보수에 좋으니 적극 추천)
+- 객체를 할당한 경우에는 값을 변경할 수 있다.
+
+일단 const를 쓰고 필요해 지면 let으로 바꾸는게 안전한 프로그래밍이다.
