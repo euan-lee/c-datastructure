@@ -24,7 +24,7 @@ o.__proto__ // Object.prototype
 
 
 
-## 16.2 프로퍼티 어트리뷰트 PropertAttribute & 프로퍼티 디스크립터 PropertyDescriptor 
+## 16.2 프로퍼티 어트리뷰트 PropertyAttribute & 프로퍼티 디스크립터 PropertyDescriptor 
 
 - js 엔진은 프로퍼티를 생성 시, 
 - 프로퍼티의 상태(프로퍼티의 값, 값의 갱신 가능 여부, 열거 가능여부, 재정의 가능 여부)를 나타내는 **프로퍼티 어트리뷰트**를 기본값으로 자동 정의
@@ -86,7 +86,7 @@ console.log(Object.getOwnPropertyDescriptors(person)) //
 **[[Enumerable]] -> enumerable**
 
 - **프로퍼티의 열거 가능 여부**, boolean
-- false인 경우, 해당 프로퍼티는 **for...in 문이나 Object.keys 메서드 등으로 열거할 수 없음**
+- false인 경우, 해당 프로퍼티는 **for...in 문이나 Object.keys 메서드 등으로 열거(리스트업)할 수 없음**
 
 
 **[[Configurable]] -> configurable** 
@@ -162,7 +162,7 @@ const person = {
         return `${this.firstName} ${this.lastName}`;
     },
 
-    set fullName(name) { // getter 함수 (fullName == 접근자 프로퍼티)
+    set fullName(name) { // setter 함수 (fullName == 접근자 프로퍼티)
         [this.firstName, this.lastName] = name.split(' '); // 31.1 배열 리스트럭처링 할당
     }
 
@@ -175,6 +175,7 @@ console.log(person.firstName + ' ' + person.lastName); // Dave Jo
 
 // 1) 접근자 프로퍼티를 통한 프로퍼티 값의 저장
 person.fullName = 'Dave Kim'; // <- fullName == 접근자 프로퍼티에 값 저장 시, setter 함수가 자동 호출됨
+// person.fullName('Dave Kim'); // getter & setter 함수를 명시적으로 호출할 수는 없음 (js 엔진이 접근자 프로퍼티의 [[Get]] 프로퍼티 어트리뷰트의 값인 getter 함수를 호출해 결과를 우리에게 주는 방식으로 작동함, 데이터 프로퍼티 & 접근자 프로퍼티의 작동 방식이 다른 것)
 
 console.log(person); // {firstName: "Dave", lastName: "Kim"}
 
@@ -186,7 +187,7 @@ console.log(person.fullName); // Dave Kim // <- fullName == 접근자 프로퍼�
 // firstName & lastName == (일반적인) 데이터 프로퍼티 
 // -> [[Value]], [[Writable]], [[Enumerable]], [[Configurable]] 프로퍼티 어트리뷰트를 갖고 있음
 
-let descriptor = Object.getOwnPeopertyDescriptor(person, 'firstName');
+let descriptor = Object.getOwnPropertyDescriptor(person, 'firstName');
 console.log(descriptor); // {value: "Dave", writable: true, enumerable: true, configurable: true}
 
 
@@ -204,6 +205,16 @@ console.log(descriptor); // {enumerable: true, configurable: true, get: ƒ, set:
 // 2. 프로퍼티 키로 프로토타입 체인에서 프로퍼티를 검색 (person 객체의 fullName 프로퍼티가 존재)
 // 3. 검색된 fullName 프로퍼티가 데이터 프로퍼티인지 접근자 프로퍼티인지 확인 (fullName 프로퍼티는 접근자 프로퍼티)
 // 4. 접근자 프로퍼티 fullName의 프로퍼티 어트리뷰트 [[Get]]의 값 == getter 함수를 호출하여 그 결과를 반환
+
+
+// get / set 메서드에 있는 
+// - person 프로퍼티에 접근해서 fullName이 데이터 프로퍼티 / 접근자 프로퍼티인지 확인함
+// - 눈으로 볼때는 함수처럼 생겼지만 `접근자 프로퍼티` 라고 불림 (사용을 프로퍼티처럼 써야함)
+ 
+// - 함수를 사용하려면 인수를 무엇을 전달해야하는지 알아야하고, 리턴값을 알아야함
+// - 프로퍼티는 인수에 대한 정보를 몰라도 됨
+// - 그래서 함수에 정의하는 행위보다 프로퍼티에 접근하는 행위가 더 쉬움
+// - DOM에 가면 많은 프로퍼티가 있음
 
 ```
 
@@ -237,6 +248,7 @@ console.log(descriptor); // {enumerable: true, configurable: true, get: ƒ, set:
 // 일반 객체의 __proto__는 접근자 프로퍼티 (get, set, enumerable, configurable)
 Object.getOwnPropertyDescriptor(Object.prototype, '__proto__');
 // {enumerable: false, configurable: true, get: ƒ, set: ƒ}
+// Object.prototype.__proto__ <- 접근자 프로퍼티를 통해 getter 함수를 호출하는 것
 
 
 // 함수 객체의 prototype는 데이터 프로퍼티 (value, writable, enumerable, configurable)
@@ -554,6 +566,8 @@ Object.defineProperty(person, 'name', { configurable: true });
 
 - 위까지의 변경 방지 메서드 == **얕은 변경 방지 shallow only**
 - **직속** 프로퍼티만 변경이 방지됨 & **중첩 객체는 영향을 주지 못함**
+- **객체**를 얼려서 **원시 값**처럼 활용하기 위해 불변 객체를 사용할 수 있음 
+  (객체에 불변성을 부여)
 
 
 ```js
@@ -620,3 +634,4 @@ person.address.city = "Busan"
 console.log(person); // {name: "Lee", address: {city: "Seoul"}} <- city(address) 변경되지 않음
 
 ```
+

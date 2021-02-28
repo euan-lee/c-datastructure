@@ -168,9 +168,6 @@ console.log(MYAPP.person.name); // 'Lee'
 >encapsulation : 객체의 상태 state를 나타내는 프로퍼티 & 프로퍼티를 참조하고 조작할 수 있는 동작 behavior인 메서드를 하나로 묶는 것
 
 
-# 어째서 즉시실행 함수인데 num 변수가 그대로 남아 변화가 발생 가능한가?
-# 매번 실행 시마다 초기화되는 것이 아닌가?
-
 ```js
 var Counter = (function() { 
     // 외부에서 접근 불가한 private member
@@ -194,6 +191,35 @@ console.log(Counter.increase()); // 2
 console.log(Counter.decrease()); // 1
 console.log(Counter.decrease()); // 0
 ```
+
+<hr>
+
+(위 예제 관련 질문) 
+
+<span style='color:blue; font-weight:bold;'>어째서 즉시실행 함수인데 num 변수가 그대로 남아 변화가 발생 가능한가?</span> 
+<span style='color:blue; font-weight:bold;'>매번 실행 시마다 초기화되는 것이 아닌가?</span>
+
+- 실제로 Counter 변수는 즉시 실행함수의 **return 값**인 아래 **increase & decrease 함수**를 변수의 값으로 갖게 됨 
+
+```js
+increase() { // 반환되는 객체의 프로퍼티는 public member
+    return ++num;
+},
+decrease() { // 반환되는 객체의 프로퍼티는 public member
+    return --num;
+}
+```
+- 이 때, 위 increase & decrease 함수가 내부적으로 num 변수를 참조하고 있으므로,
+- num 변수는 즉시실행함수가 종료되더라도 가비지 콜렉터가 회수하지 않음
+
+- 일반적으로 함수가 종료되면 함수가 생성한 스코프도 소멸하나,
+ 누군가가 스코프를 참조하고 있다면 해당 스코프는 해제되지 않고 생존하게 되고 & 
+ 지역 변수는 자신이 등록된 스코프가 소멸될 때까지 유효하므로,
+ num 지역 변수는 여전히 유효하고 increase & decrease 함수로 값을 변경하는 것이 반영됨
+ 
+
+<hr>
+
 
 
 ### [ 4) ES6 모듈 ]

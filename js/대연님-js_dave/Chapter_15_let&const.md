@@ -324,3 +324,10 @@ console.log(person); // {name: 'Kim'}
 - 객체는 의외로 재할당하는 경우가 적음
 - 따라서 변수를 선언할 때에는 일단 const 사용 
 - -> **반드시 재할당이 필요할 경우에 const를 let로 변경해도 ok**
+
+
+
+## 추가 학습자료
+
+- 변수의 유효범위와 클로저 (렉시컬 환경 관련 상세한 설명) @ https://ko.javascript.info/closure#ref-2866
+- var & const Hoisting 시각화 @ https://dev.to/lydiahallie/javascript-visualized-hoisting-478h 
