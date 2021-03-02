@@ -31,7 +31,7 @@
   
   function foo(){
       var x = 'local';
-      console.log(x); // 'local'
+      console.log(x); // 'local' 
   }
   
   foo();
