@@ -118,8 +118,10 @@
  var x = 1;
 
  function foo() {
+     console.log(x);
      var x = 10;
      bar();
+     console.log(x);
  }
 
  function bar() {
@@ -128,3 +130,4 @@
 
  foo(); // 1
  bar(); // 1
+
