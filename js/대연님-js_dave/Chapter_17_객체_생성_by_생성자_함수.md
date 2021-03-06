@@ -33,6 +33,10 @@ person.sayHello(); // Hi! My name is Lee
 
 
 ```js
+// -> 실제로 [ String / Number / Boolean ]와 new 연산자를 함께 쓰는 것은 anti-pattern 
+//     @ Don’t use new on Primitive types (https://medium.com/@shiljopaulson/dont-use-new-in-primitive-types-1617fcb6efac) 
+//         + https://eslint.org/docs/rules/no-new-wrappers
+
 
 const strObj = new String('Lee'); // String "객체" 생성
 
@@ -123,7 +127,7 @@ console.log(circle2.getDiameter()); // 20
 
 ### [ 생성자 함수에 의한 객체 생성 방식의 장점 ]
 
-: **객체(인스턴스)를 생성하기 위한 템플릿(클래스)**처럼 생성자 함수를 사용해 [ 프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성 ]할 수 있음
+: **객체(인스턴스)를 생성하기 위한 템플릿(클래스)** 처럼 생성자 함수를 사용해 [ 프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성 ]할 수 있음
 
 
 ```js
@@ -536,6 +540,8 @@ console.log(f); // f anonymous(x) {return x ** x}
 // String / Number / Boolean : 
 // with "new" -> String / Number / Boolean "객체" 생성 & 반환
 // without "new" -> 문자열, 숫자, 불리언 "값"을 반환 -> 이를 통해 타입 변환을 하기도 함
+// -> 실제로 [ String / Number / Boolean ]와 new 연산자를 함께 쓰는 것은 anti-pattern 
+//     @ Don’t use new on Primitive types (https://medium.com/@shiljopaulson/dont-use-new-in-primitive-types-1617fcb6efac)
 
 const str = String(123);
 console.log(str, typeof str); // 123 string

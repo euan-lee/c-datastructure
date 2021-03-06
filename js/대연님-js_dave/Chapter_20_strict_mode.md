@@ -1,5 +1,7 @@
 # 20. strict mode
 
+- 추가 학습 @ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Strict_mode
+
 
 
 ## 20.1 strict mode란?
@@ -260,3 +262,27 @@ foo();
 
 ```
 
+
+```js
+
+function test(test) {
+    'use strict';
+    console.log('Phase1 (arguments) : ', arguments);
+    console.log(arguments[0]);
+
+    console.table(test, 'Phase1 (params) : ');
+    console.log(test.a + 10);
+
+    test.a = 100;
+
+    // 만약 주어진 인수가 객체일 경우에는, 변경된 인수가 arguments 객체에 반영됨
+    console.log('Phase2 (arguments) : ', arguments);
+    console.log(arguments[0]);
+    
+    console.table(test, 'Phase2 (params) : ');
+    console.log(test.a + 10);
+}
+
+test({a:1});
+
+```
