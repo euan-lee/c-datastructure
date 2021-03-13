@@ -36,7 +36,7 @@
 
 const person = {
     name: 'Lee',
-    address: 'Seoul
+    address: 'Seoul'
 };
 
 console.log(person); // {name: 'Lee', address: 'Seoul'}
@@ -170,7 +170,7 @@ console.log(circle1.getArea === circle2.getArea); // true
 - **프로토타입 객체**(이하 프로토타입)
   + 객체 간 상속을 구현하기 위해 사용됨
   + 어떤 객체의 상위(부모) 객체 역할을 하는 객체
-  + 다른 객체에 **공유 프로퍼티(<u>메서드 포함</u>)**를 제공
+  + 다른 객체에 **공유 프로퍼티(<u>메서드 포함</u>)** 를 제공
   + 프로토타입을 상속받은 하위 객체는 상위 객체(프로토타입)의 프로퍼티를 자신의 프로퍼티처럼 자유로이 사용
 
 <hr>
@@ -201,14 +201,14 @@ console.log(circle1.getArea === circle2.getArea); // true
 
 ### [ 1) \_\_proto\_\_ 접근자 프로퍼티 ]
 
-* 모든 객체("직접 상속" 제외)는 \_\_proto\_\_ 접근자 프로퍼티를 통해 자신의 **프로토타입([[Prototype]] 내부 슬롯)**에 간접적으로 접근 가능
+* 모든 객체("직접 상속" 제외)는 \_\_proto\_\_ 접근자 프로퍼티를 통해 자신의 **프로토타입([[Prototype]] 내부 슬롯)** 에 간접적으로 접근 가능
 
 * \_\_proto\_\_ 프로퍼티는 객체가 직접 소유하는 프로퍼티가 아님
   (Object.prototype의 프로퍼티를 상속받은 것)
 
 * 코드 내에서 \_\_proto\_\_ 프로퍼티를 직접 사용하는 것은 권장 X
   모든 객체가 \_\_proto\_\_ 프로퍼티를 사용할 수 있는 것은 아니기 때문.
-  **[직접 상속]**을 통해 Object.prototype을 상속받지 않는 객체를 생성할 수도 있음 (__proto__ 프로퍼티 사용불가)
+  **[직접 상속]** 을 통해 Object.prototype을 상속받지 않는 객체를 생성할 수도 있음 (__proto__ 프로퍼티 사용불가)
 
 
 ```js
@@ -278,7 +278,7 @@ console.log(Object.getOwnPropertyDescriptor(Object.prototype, '__proto__'));
 
 
 console.log({}.__proto__ === Object.prototype) // true
-// 모든 객체는 Object.prototype의 접근자 프로퍼티 __proto__를 상속(받아 사용할 수 있음)
+// 모든 객체(예외 존재)는 Object.prototype의 접근자 프로퍼티 __proto__를 상속(받아 사용할 수 있음)
 
 ```
 
@@ -486,7 +486,7 @@ const regexp = /is/ig;
 const obj2 = {}; 
 
 // 그러나 obj 객체의 생성자 함수는 Object 생성자 함수임
-console.log(obj.constructor === Object); // true
+console.log(obj2.constructor === Object); // true
 
 ```
 
@@ -538,7 +538,8 @@ console.log(foo.constructor === Function); // true
 - 프로토타입은 생성자 함수와 더불어 생성되며 prototype & constructor 프로퍼티에 의해 연결되어 있음
 - 즉, **프로토타입 & 생성자 함수**는 단독으로 존재할 수 없고 언제나 쌍으로 존재함
 - 따라서 <u>[리터럴 표기법에 의해 생성된 객체]도 **가상적인 생성자 함수**를 갖게 됨</u>
-- 따라서 [ 프로토타입의 constructor 프로퍼티를 통해 연결되어 있는 생성자 함수 ] == [ 리터럴 표기법으로 생성한 객체를 생성한 생성자 함수 ]로 생각해도 큰 무리는 없음
+- 따라서 [ 리터럴 표기법으로 생성한 객체를 생성한 생성자 함수 ] 
+  == [ 프로토타입의 constructor 프로퍼티를 통해 연결되어 있는 생성자 함수 ] 로 생각해도 큰 무리는 없음
 
 
 |리터럴 표기법|생성자 함수|프로토타입|
@@ -675,6 +676,7 @@ you.sayHello(); // Hi! My name is Kim
 ## 19.7 프로토타입 체인
 
 - 프로토타입 체인 : js가 객체지향 프로그래밍의 **상속**과 **프로퍼티 검색**을 구현하는 메커니즘
+- 프로토타입 체인 예시 (Array) : Why is Array.prototype designed to be a fully functional array? @ https://j.mp/2Oqvdjb
 
 
 ```js
@@ -699,7 +701,8 @@ console.log(me.hasOwnProperty('name')); // true
 
 // 실제로는 Object.prototype.hasOwnProperty 메서드가 호출되며, 
 // 이 때 [ Object.prototype.hasOwnProperty 메서드의 this ]에는 [ me 객체 ]가 바인딩됨
-// 실제 실행되는 방식 : Object.prototype.hasOwnProperty.call(me, 'name') // this 바인딩 객체(this로 사용할 객체), 인수 
+// 실제 실행되는 방식 : 
+Object.prototype.hasOwnProperty.call(me, 'name') // this 바인딩 객체(this로 사용할 객체), 인수 
 
 
 
@@ -727,11 +730,28 @@ Object.getPrototypeOf(me.constructor.prototype) === Object.prototype; // true
 - -> **Object.prototype** == **프로토타입 체인의 종점**
 - ->> Object.prototype.__proto__ == Object.prototype의 프로토타입([[Prototype]] 내부 슬롯의 값) == **null**
 
+
 ```js
 
 // Object.prototype에서도 프로퍼티 검색 실패 시, undefined가 반환됨 (에러 발생 X)
 
 console.log(me.foo); // undefined
+
+```
+
+
+```js
+// 268p
+
+// Object.create() 메서드 : 지정된 프로토타입 객체와 속성(property)을 갖는 새 객체를 만듦 (https://j.mp/3qRjUhj)
+const.obj = Object.create(null); // null : 새로 만든 객체의 프로토타입이어야 할 객체 
+// obj를 프로토타입 체인의 종점으로 만들어버릴 수 있음
+
+console.log(obj.__proto__); // undefined
+// 이렇게 되면 Object.__proto__를 상속받을 수 없게 됨
+
+console.log(Object.getPrototypeOf(obj)); // null
+// __proto__ 대신 Object.getPrototypeOf 메서드를 사용하면, 이 경우에도 프로토타입을 얻어낼 수 있음
 
 ```
 
