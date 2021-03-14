@@ -1,5 +1,8 @@
 # 18. 함수 & 일급 객체
 
+#### - 추가 학습 : 함수의 메소드와 arguments (함수의 메소드 **call / apply / bind**) @ https://www.zerocho.com/category/JavaScript/post/57433645a48729787807c3fd
+
+#### - 추가 학습 : 코드스피츠 3rd-3 ES6+ 함수와 OOP (Youtube) @ https://j.mp/3rza0SF
 
 
 ## 18.1 일급 객체
@@ -213,12 +216,15 @@ console.log(sum(1, 2, 3));     // 6
 - 배열 메서드를 사용하려면 Function.prototype.call & Function.prototype.apply로 간접 호출해야 함
   (배열 @ 27장 + 간접호출 @ 22.2.4)
 
+- \+ 추가 학습 : 함수의 메소드와 arguments (함수의 메소드 **call / apply / bind**) @ https://www.zerocho.com/category/JavaScript/post/57433645a48729787807c3fd
+
 
 ```js
 
 function sum() {
     
     // arguments 객체를 배열로 변환
+    // 배열의 프로토타입이 갖고 있는 slice 함수를 빌려 쓰는 것
     const array = Array.prototype.slice.call(arguments);
     
     return array.reduce(function (pre, cur) {
